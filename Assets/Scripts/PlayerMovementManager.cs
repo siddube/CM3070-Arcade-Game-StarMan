@@ -53,18 +53,19 @@ public class PlayerMovementManager : MonoBehaviour
     public void OnMove(InputValue input)
     {
         // Read player input of arrow keys to direct movement of the ship
+        // If player is pressing up arrow
+        // Then set thrusting bool to true
+        // This boolean is used to toggle thrust audio and particle fx 
         m_moveInupt = input.Get<Vector2>();
         if (m_moveInupt.y > 0.2f)
         {
             isSpaceShipThrusting = true;
-            audioSource.Play();
         }
         else
         {
             isSpaceShipThrusting = false;
-            audioSource.Stop();
         }
-        ToggleThrustParticle(isSpaceShipThrusting);
+        ToggleThrustParticleAndAudioFX(isSpaceShipThrusting);
     }
 
     // Private method to move the spaceship
@@ -139,15 +140,17 @@ public class PlayerMovementManager : MonoBehaviour
         }
     }
 
-    private void ToggleThrustParticle(bool playThrust)
+    private void ToggleThrustParticleAndAudioFX(bool playThrust)
     {
         if (!playThrust)
         {
             ThrustParticleSystem.Stop();
+            audioSource.Stop();
         }
         else
         {
             ThrustParticleSystem.Play();
+            audioSource.Play();
         }
     }
 }
