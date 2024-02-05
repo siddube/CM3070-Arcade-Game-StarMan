@@ -1,10 +1,11 @@
 /* ------------------------------------------------------------------------------
 <PlayerMovementManager Class>
-  This script is the game manager that handles
-  1> Accepting keyboard input for the player space ship
+  This script handles
+  1> Accepting keyboard input for the player space ship movement
   2> Moving player space ship
   3> Rotate the player space ship
-  3> Keeping the player space ship on screen
+  4> Keeping the player space ship on screen
+  5> To trigger audio and particle fx when player is thrusting the space ship
 <PlayerMovementManager Class>
 --------------------------------------------------------------------------------*/
 using System.Collections;

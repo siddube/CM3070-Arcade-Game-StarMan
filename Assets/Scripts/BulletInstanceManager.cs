@@ -1,3 +1,11 @@
+/* ------------------------------------------------------------------------------
+<BulletManager Class>
+  This script handles
+  1> Playing bullet sound fx
+  2> Moving bullets
+  3> Destory bullets if out of screen bounds
+<BulletManager Class>
+--------------------------------------------------------------------------------*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

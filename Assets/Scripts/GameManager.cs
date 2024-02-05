@@ -95,11 +95,11 @@ public class GameManager : MonoBehaviour
         yield return null;
       }
     }
-    // Once the while loop to start game ends
+    // Once the while loop exits on starting the game
     // Check if start game event property is not null
     if (StartGameEvent != null)
     {
-      //If yes then invoke start game event for other game objects to follow 
+      //Then invoke start game event for other game objects to follow 
       StartGameEvent.Invoke();
     }
   }
@@ -107,7 +107,10 @@ public class GameManager : MonoBehaviour
   IEnumerator PlayGameSceneRoutine()
   {
     Debug.Log("GameManager info: Playing Game");
+    // Set the game has started bool to true
     m_hasGameStarted = true;
+    // Check if the game is over
+    // and yield null till the game is over
     while (!m_isGameOver)
     {
       yield return null;
