@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2842702515561945543}
   - component: {fileID: 9103229777126654372}
   - component: {fileID: 8116375611338785650}
+  - component: {fileID: 1561261434399475644}
   m_Layer: 0
   m_Name: PlayerGameObject
   m_TagString: Player
@@ -36,7 +37,7 @@ Transform:
   - {fileID: 2265469575829442749}
   - {fileID: 6174783201852683741}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7945416935806924378
 Rigidbody:
@@ -234,6 +235,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &1561261434399475644
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2454671532118373614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 1.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1001 &945940149667940728
 PrefabInstance:
   m_ObjectHideFlags: 0

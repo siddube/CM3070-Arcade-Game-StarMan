@@ -168,7 +168,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &8314823158860143370
 BoxCollider:
@@ -203,6 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899f4c0bdb8f27a4798f1de34d99919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShotAsteroid:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &8613019594437666209
 AudioSource:
   m_ObjectHideFlags: 0
