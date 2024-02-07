@@ -17,7 +17,7 @@ public class BulletInstanceManager : MonoBehaviour
     private GameObject m_player;
     private PlayerCombatManager m_playerCombatManager;
     //Event emitted when bullet destroys an asteroid
-    public UnityEvent ShotAsteroid;
+    //public UnityEvent ShotAsteroid;
     // Property to set speed of bullets
     private float m_speed = 10f;
     // Reference to audio source with bullet shot sound fx
@@ -60,16 +60,16 @@ public class BulletInstanceManager : MonoBehaviour
             m_playerCombatManager.UpdateScore(m_playerCombatManager.Score, 100);
             // Asteroid shot
             // Invoke asteroid shot event 
-            ShotAsteroid.Invoke();
+            //ShotAsteroid.Invoke();
             // Set the asteroid instance game object to false
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             // Destroy the game object
-            Destroy(other.gameObject);
-
+            //Destroy(other.gameObject);
+            other.GetComponent<AsteroidInstaceManager>().DestroyAsteroidFx();
+            other.GetComponent<AsteroidInstaceManager>().DestroyAsteroid();
             // Call destroy bullet instance method
             DestroyBulletInstance();
-
-
+            return;
         }
     }
 
