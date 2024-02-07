@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3839022712555561881}
   - component: {fileID: 258117953214930584}
   - component: {fileID: 1841458935802521422}
-  - component: {fileID: 1077116515113013628}
+  - component: {fileID: -3559235166631394641}
   m_Layer: 0
   m_Name: Asteroid_1
   m_TagString: Asteroids
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1077116515113013628
+--- !u!114 &-3559235166631394641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,3 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a52534f3e22fc34fa7cdd1989d9c6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAsteroidPlayerCollision:
+    m_PersistentCalls:
+      m_Calls: []

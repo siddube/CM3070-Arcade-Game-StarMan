@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 367431905810661831}
   - component: {fileID: 7945416935806924378}
+  - component: {fileID: 1561261434399475644}
   - component: {fileID: 177736102175652465}
   - component: {fileID: 2842702515561945543}
   - component: {fileID: 9103229777126654372}
   - component: {fileID: 8116375611338785650}
-  - component: {fileID: 1561261434399475644}
   m_Layer: 0
   m_Name: PlayerGameObject
   m_TagString: Player
@@ -66,6 +66,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
+--- !u!136 &1561261434399475644
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2454671532118373614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 1.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!82 &177736102175652465
 AudioSource:
   m_ObjectHideFlags: 0
@@ -220,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a60e95890660d4fb2247405eb12570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 8170133042611087750, guid: f00bad25e440de44ebc7f1e6761e5fcf, type: 3}
+  ScoreText: {fileID: 7941855855135713960, guid: 8e3dd0e517a1cb8479274a5b688a993c, type: 3}
   ShootBullets:
     m_PersistentCalls:
       m_Calls:
@@ -235,29 +260,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &1561261434399475644
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2454671532118373614}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6
-  m_Height: 1.5
-  m_Direction: 0
-  m_Center: {x: 0, y: 0.15, z: 0}
+  PlayerShipDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: d55dbdeddb9f5b14da3e0d0091ea77c8, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &945940149667940728
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,11 +17,13 @@ public class AsteroidInstaceManager : MonoBehaviour
     public UnityEvent OnAsteroidPlayerCollision;
     // Private property that references player game object
     private GameObject m_player;
+    private PlayerCombatManager m_playerCombatManager;
 
     private void Awake()
     {
         // Set reference to player game object
         m_player = GameObject.FindGameObjectWithTag("Player");
+        m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -30,9 +32,11 @@ public class AsteroidInstaceManager : MonoBehaviour
         if (other.gameObject == m_player)
         {
             // If yes, then invoke asteroid player spaceship collision
-            OnAsteroidPlayerCollision.Invoke();
+            // OnAsteroidPlayerCollision.Invoke();
             // Call destory asteroid
+            m_playerCombatManager.TakeDamage(m_playerCombatManager.CurrentHealth, 20);
             DestroyAsteroid();
+            return;
         }
     }
 

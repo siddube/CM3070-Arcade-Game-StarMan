@@ -14,6 +14,8 @@ using UnityEngine.Events;
 
 public class BulletInstanceManager : MonoBehaviour
 {
+    private GameObject m_player;
+    private PlayerCombatManager m_playerCombatManager;
     //Event emitted when bullet destroys an asteroid
     public UnityEvent ShotAsteroid;
     // Property to set speed of bullets
@@ -21,8 +23,11 @@ public class BulletInstanceManager : MonoBehaviour
     // Reference to audio source with bullet shot sound fx
     private AudioSource audioSource;
 
+
     private void Awake()
     {
+        m_player = GameObject.FindGameObjectWithTag("Player");
+        m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
         // Reference the audio source component
         audioSource = this.gameObject.GetComponent<AudioSource>();
     }
@@ -52,6 +57,7 @@ public class BulletInstanceManager : MonoBehaviour
         // Trigger enter method
         if (other.gameObject.tag == "Asteroids")
         {
+            m_playerCombatManager.UpdateScore(m_playerCombatManager.Score, 100);
             // Asteroid shot
             // Invoke asteroid shot event 
             ShotAsteroid.Invoke();
@@ -62,6 +68,8 @@ public class BulletInstanceManager : MonoBehaviour
 
             // Call destroy bullet instance method
             DestroyBulletInstance();
+
+
         }
     }
 

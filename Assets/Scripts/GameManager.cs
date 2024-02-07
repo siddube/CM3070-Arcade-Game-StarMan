@@ -10,6 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour
   // Private bool property to know if the game is over
   private bool m_isGameOver = false;
   public bool IsGameOver { get => m_isGameOver; set => m_isGameOver = value; }
+  private bool m_isTimeOver = false;
+  public bool IsTimeOver { get => m_isTimeOver; set => m_isTimeOver = value; }
+
 
   // References to other game objects used in the script
   private GameObject m_player;
@@ -44,11 +48,13 @@ public class GameManager : MonoBehaviour
   private string RunGameLoopString = "RunGameLoopRoutine";
   private string SetupGameSceneString = "SetupGameSceneRoutine";
 
-  private string PlayGameSceneString = "PlayGameSceneRoutine";
+  private string PlayGameString = "PlayGameRoutine";
+  private string EndGameString = "EndGameRoutine";
 
   // Events emitted by game manager
   public UnityEvent SetupGameSceneEvent;
   public UnityEvent StartGameEvent;
+  public UnityEvent EndGameEvent;
 
   private void Awake()
   {
@@ -75,7 +81,8 @@ public class GameManager : MonoBehaviour
     // Coroutines that control flow of game states
     // Coroutine to setup game scene
     yield return StartCoroutine(SetupGameSceneString);
-    yield return StartCoroutine(PlayGameSceneString);
+    yield return StartCoroutine(PlayGameString);
+    yield return StartCoroutine(EndGameString);
 
   }
 
@@ -104,16 +111,35 @@ public class GameManager : MonoBehaviour
     }
   }
 
-  IEnumerator PlayGameSceneRoutine()
+  IEnumerator PlayGameRoutine()
   {
     Debug.Log("GameManager info: Playing Game");
     // Set the game has started bool to true
     m_hasGameStarted = true;
     // Check if the game is over
     // and yield null till the game is over
-    while (!m_isGameOver)
+    while (!m_isGameOver && !m_isTimeOver)
     {
       yield return null;
     }
+    if (EndGameEvent != null)
+    {
+      EndGameEvent.Invoke();
+    }
+  }
+
+  IEnumerator EndGameRoutine()
+  {
+    Debug.Log("GameManager info: Ending Game");
+    while (m_isGameOver || m_isTimeOver)
+    {
+      yield return null;
+    }
+  }
+
+  public void RestartLevel()
+  {
+    Scene scene = SceneManager.GetActiveScene();
+    SceneManager.LoadScene(scene.name);
   }
 }
