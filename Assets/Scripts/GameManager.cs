@@ -10,6 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
   // References to other game objects used in the script
   private GameObject m_player;
+
 
   // Properties to save coroutine names
   private string RunGameLoopString = "RunGameLoopRoutine";

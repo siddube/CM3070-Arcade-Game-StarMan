@@ -16,8 +16,7 @@ using UnityEngine.InputSystem;
 public class PlayerCombatManager : MonoBehaviour
 {
   [SerializeField] public HealthBar HealthBar;
-
-  [SerializeField] public TMP_Text ScoreText;
+  [SerializeField] GameScoreManager scoreManager;
   //Event emitted when player presses spacebar to shoot
   public UnityEvent ShootBullets;
   public UnityEvent PlayerShipDestroyed;
@@ -44,7 +43,7 @@ public class PlayerCombatManager : MonoBehaviour
   public void UpdateScore(int currentScore, int pointsToAdd)
   {
     Score = currentScore + pointsToAdd;
-    ScoreText.GetComponent<TextMeshProUGUI>().text = "Score: " + Score.ToString();
+    scoreManager.SetScore(Score);
   }
 
   public void TakeDamage(int currentHealth, int damageValue)

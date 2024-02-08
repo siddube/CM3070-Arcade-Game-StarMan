@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 8170133042611087750, guid: f00bad25e440de44ebc7f1e6761e5fcf, type: 3}
-  ScoreText: {fileID: 7941855855135713960, guid: 8e3dd0e517a1cb8479274a5b688a993c, type: 3}
+  GameScoreManager: {fileID: 0}
   ShootBullets:
     m_PersistentCalls:
       m_Calls:
@@ -262,19 +262,7 @@ MonoBehaviour:
         m_CallState: 2
   PlayerShipDestroyed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: d55dbdeddb9f5b14da3e0d0091ea77c8, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &945940149667940728
 PrefabInstance:
   m_ObjectHideFlags: 0
