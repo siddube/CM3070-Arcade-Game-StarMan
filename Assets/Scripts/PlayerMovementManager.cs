@@ -12,14 +12,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementManager : MonoBehaviour
 {
-	// Property accessible from editor, to reference thrust particle system 
+	// Property set from editor, to reference thrust particle system 
 	[SerializeField] ParticleSystem ThrustParticleSystem;
-	// Private property, yet accessible from editor, to control +ve and -ve thrust on player space ship
+	// Private property, yet set from editor, to control +ve and -ve thrust on player space ship
 	[SerializeField] private float m_thrust = 10f;
-	// Private property, yet accessible from editor, to set backward thrust threshold
+	// Private property, yet set from editor, to set backward thrust threshold
 	[SerializeField] private float m_backwardThrustThreshold = 0.2f;
 
-	// Private property, yet accessible from editor, to set rotationSteer speed of player space ship
+	// Private property, yet set from editor, to set rotationSteer speed of player space ship
 	[SerializeField] private float m_rotateSteerSpeed = 75f;
 	// Private vector to store the composite vector from player controls
 	private Vector2 m_moveInupt;
@@ -74,10 +74,10 @@ public class PlayerMovementManager : MonoBehaviour
 	private void MoveSpaceship()
 	{
 		// If rigid body is not referenced, then throw a warning to the console log
-		if (!m_rb) { Debug.Log("ERR: SpaceshipMovementManager ====== MoveSpaceship() ====== Rigid Body Not Found"); return; }
+		if (!m_rb) { Debug.Log("ERR: PlayerMovementManager ====== MoveSpaceship() ====== Rigid Body Not Found"); return; }
 
 		// If thrust particle system is not set, then throw a warning to the console log
-		if (!ThrustParticleSystem) { Debug.Log("ERR: SpaceshipMovementManager ====== MoveSpaceship() ====== Thrust Particle System Not Found"); return; }
+		if (!ThrustParticleSystem) { Debug.Log("ERR: PlayerMovementManager ====== MoveSpaceship() ====== Thrust Particle System Not Found"); return; }
 
 		// Calculate thrust value from up and down arrow
 		// Also access the direction of thrust
@@ -108,7 +108,7 @@ public class PlayerMovementManager : MonoBehaviour
 	private void RotateSpaceship()
 	{
 		// If rigid body is not referenced, then throw a warning to the console log
-		if (!m_rb) { Debug.Log("ERR: SpaceshipMovementManager ====== RotateSpaceship() ====== Rigid Body Not Found"); return; }
+		if (!m_rb) { Debug.Log("ERR: PlayerMovementManager ====== RotateSpaceship() ====== Rigid Body Not Found"); return; }
 
 		// Calculate the Euler angle velocity from keyboard input
 		Vector3 m_EulerAngleVelocity = new Vector3(0, 0, m_rotateSteerSpeed * -m_moveInupt.x);
@@ -122,7 +122,7 @@ public class PlayerMovementManager : MonoBehaviour
 	private void KeepShipOnScreen()
 	{
 		// If rigid body is not referenced, then throw a warning to the console log
-		if (!m_rb) { Debug.Log("ERR: SpaceshipMovementManager ====== KeepShipOnScreen() ====== Rigid Body Not Found"); return; }
+		if (!m_rb) { Debug.Log("ERR: PlayerMovementManager ====== KeepShipOnScreen() ====== Rigid Body Not Found"); return; }
 		// Set screen bounds for X axis and Y axis
 		// Float values to define bounds in viewport position 
 		float minX = 0.1f, minY = 0.1f;
@@ -148,7 +148,7 @@ public class PlayerMovementManager : MonoBehaviour
 	private void ToggleThrustParticleAndAudioFX(bool playThrust)
 	{
 		// If thrust particle system is not set, then throw a warning to the console log
-		if (!ThrustParticleSystem) { Debug.Log("ERR: SpaceshipMovementManager ====== MoveSpaceship() ====== Thrust Particle System Not Found"); return; }
+		if (!ThrustParticleSystem) { Debug.Log("ERR: PlayerMovementManager ====== MoveSpaceship() ====== Thrust Particle System Not Found"); return; }
 		// If thrusting is false
 		// Stop thrust sound and particle fx
 		if (!playThrust)

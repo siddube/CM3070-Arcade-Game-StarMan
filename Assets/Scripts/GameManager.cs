@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
   {
     // Setup game scene co-routine is used to set the game scene and display start menu
     Debug.Log("GameManager info: Setup Game Scene");
-    // If the setup game scene event property is not null
+    // Check if the setup game scene event property is not null
     if (SetupGameSceneEvent != null)
     {
       // If yes then invoke setup game scene event for other game objects to follow 
