@@ -1094,17 +1094,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929009363}
   m_CullTransparentMesh: 1
---- !u!114 &932781163 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6156387546975025940, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-  m_PrefabInstance: {fileID: 2174788825605911573}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341892b86435f604ea99753ad96c7c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1029773759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,76 +3142,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGameObject
       objectReference: {fileID: 0}
-    - target: {fileID: 2454671532118373614, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 751499754}
     - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: ScoreText
-      value: 
-      objectReference: {fileID: 4860217405992964996}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
       propertyPath: ScoreManager
-      value: 
-      objectReference: {fileID: 4105356190572227781}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: scoreManager
-      value: 
-      objectReference: {fileID: 4105356190572227781}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: GameScoreManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: finalScoreManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnShootBullets.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnShootBullets.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 932781163}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnShootBullets.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1861586985}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4105356190572227781}
     - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
@@ -3233,82 +3158,6 @@ PrefabInstance:
       propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4105356190572227781}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_IsGameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetFinalScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_IsGameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetFinalScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: GameScoreManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: GameScoreManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: PlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
