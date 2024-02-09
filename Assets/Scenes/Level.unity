@@ -1647,7 +1647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1289924017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2120,13 +2120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26dae6eb05724545a6d0dee9df8a9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsteroidPrefabs:
+  m_asteroidPrefabs:
   - {fileID: 2942051580892192243, guid: d57d6419728ca4fa486055a9b54eb326, type: 3}
   - {fileID: 3539412230784186596, guid: 607f852e894b2474e8037bde96a3f38c, type: 3}
-  SecondsBetweenAsteroids: 5
-  ForceRange: {x: 2, y: 5}
-  MinAsteroidSize: 20
-  MaxAsteroidSize: 30
+  m_secondsBetweenAsteroids: 3
+  m_forceRange: {x: 2, y: 4}
+  m_minAsteroidSize: 20
+  m_maxAsteroidSize: 30
 --- !u!1 &1767928204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2454671532118373614, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}

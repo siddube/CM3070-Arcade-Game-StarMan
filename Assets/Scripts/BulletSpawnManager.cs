@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------------------
 BulletSpawnManager Class
-  *This script handles
+  * This script handles
   1> Spawning of new bullets
 --------------------------------------------------------------------------------*/
 
@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class BulletSpawnManager : MonoBehaviour
 {
-
   // Private property accessible from editor, to reference bullet prefab
   [SerializeField] private GameObject BulletPrefab;
   // Private property accessible from editor, to reference bullet prefab's parent object
