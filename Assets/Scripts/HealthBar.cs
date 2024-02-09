@@ -1,3 +1,8 @@
+/* ------------------------------------------------------------------------------
+HealthBar Class
+  This script handles
+  1> Managing health bar of the player ship
+--------------------------------------------------------------------------------*/
 
 using UnityEngine;
 using UnityEngine.UI;
