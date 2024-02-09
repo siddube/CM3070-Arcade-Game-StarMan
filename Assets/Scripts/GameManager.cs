@@ -1,10 +1,9 @@
 /* ------------------------------------------------------------------------------
 GameManager Class
-  This script is the game manager that handles
+  * This script is the game manager that handles
   1> Game states reference
   2> Changes game states
   3> The flow of game states
-GameManager Class
 --------------------------------------------------------------------------------*/
 
 using System.Collections;
@@ -55,16 +54,16 @@ public class GameManager : MonoBehaviour
   public UnityEvent StartGameEvent;
   public UnityEvent EndGameEvent;
 
+  //Awake method
   private void Awake()
   {
-    //Awake method
     // Get player reference
     m_player = GameObject.FindGameObjectWithTag("Player");
   }
 
+  // Start method
   private void Start()
   {
-    // Start method
     // Check if a player reference has been setup
     if (m_player != null)
     {
@@ -77,6 +76,7 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  // Run main game loop
   IEnumerator RunGameLoopRoutine()
   {
     // Coroutines that control flow of game states
@@ -88,10 +88,10 @@ public class GameManager : MonoBehaviour
     yield return StartCoroutine(EndGameString);
   }
 
+  // Setup game scene co-routine
   IEnumerator SetupGameSceneRoutine()
   {
-    // Setup game scene co-routine
-    // Setup game scene method is used to set the game scene and display start menu
+    // Setup game scene co-routine is used to set the game scene and display start menu
     Debug.Log("GameManager info: Setup Game Scene");
     // If the setup game scene event property is not null
     if (SetupGameSceneEvent != null)
@@ -114,13 +114,13 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  // Play game co-routine
   IEnumerator PlayGameRoutine()
   {
-    // Play game co-routine
+    // Play game scene co-routine is used to play the game on pressing play button
     Debug.Log("GameManager info: Playing Game");
-    // Set the game has started bool to true
-    m_hasGameStarted = true;
-    // Check if the game is over
+
+    // Check if the game or game time is over
     // and yield null till the game is over
     while (!m_isGameOver && !m_isTimeOver)
     {
@@ -134,20 +134,20 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  // End game co-routine
   IEnumerator EndGameRoutine()
   {
-    // End game co-routine
     Debug.Log("GameManager info: Ending Game");
-    // Yiield null when the game is over
+    // Yield null when the game is over
     while (m_isGameOver || m_isTimeOver)
     {
       yield return null;
     }
   }
 
+  // Restart game level method
   public void RestartLevel()
   {
-    // Restart game level method
     // Get the current active scene
     Scene scene = SceneManager.GetActiveScene();
     // Load scene again to reboot game
