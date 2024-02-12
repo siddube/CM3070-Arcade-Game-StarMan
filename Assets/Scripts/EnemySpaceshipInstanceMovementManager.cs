@@ -21,7 +21,7 @@ public class EnemySpaceshipMovement : MonoBehaviour
 			LookAtPlayer();
 			MoveTowardsPlayer();
 		}
-		else
+		if (m_isInCombatRange)
 		{
 			LookAtPlayer();
 		}
@@ -41,12 +41,17 @@ public class EnemySpaceshipMovement : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		m_isInCombatRange = true;
-		m_rb.velocity = Vector3.zero;
+		if (other.gameObject.tag == "Player")
+		{
+			m_isInCombatRange = true;
+		}
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
-		m_isInCombatRange = false;
+		if (other.gameObject.tag == "Player")
+		{
+			m_isInCombatRange = false;
+		}
 	}
 }

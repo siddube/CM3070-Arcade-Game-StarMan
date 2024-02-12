@@ -11,10 +11,13 @@ using UnityEngine;
 
 public class AsteroidInstaceManager : MonoBehaviour
 {
+
 	// Private property that references player game object
 	private GameObject m_player;
 	// Private property that references player combat manager
 	private PlayerCombatManager m_playerCombatManager;
+	// Private property that references player spaceship body collider
+	private Collider m_playerShipCollider;
 	// Private property that references asteroid particle system fx
 	private ParticleSystem m_particleSystemInstance;
 	// Private property that references asteroid audio fx
@@ -35,6 +38,7 @@ public class AsteroidInstaceManager : MonoBehaviour
 		m_player = GameObject.FindGameObjectWithTag("Player");
 		// Set reference to player combat script on the player game object 
 		m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
+		m_playerShipCollider = m_player.GetComponent<CapsuleCollider>();
 		// Set reference to audio source on the asteroid instace 
 		m_audioSource = this.gameObject.GetComponent<AudioSource>();
 		// Set reference to collider on the asteroid instace 
@@ -53,7 +57,7 @@ public class AsteroidInstaceManager : MonoBehaviour
 		if (m_playerCombatManager == null) { Debug.Log("ERR: AsteroidInstaceManager ====== OnTriggerEnter() ====== Player Combat Script Not Found"); return; }
 		// Collider Trigger Method
 		// Check if the object collided with is player
-		if (other.gameObject == m_player)
+		if (other == m_playerShipCollider)
 		{
 			// Yes, then set damage to player
 			m_playerCombatManager.TakeDamage(m_playerCombatManager.CurrentHealth, 20);
