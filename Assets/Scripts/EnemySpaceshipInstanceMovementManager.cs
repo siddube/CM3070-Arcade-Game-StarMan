@@ -36,7 +36,7 @@ public class EnemySpaceshipMovement : MonoBehaviour
 	{
 		Vector3 lookAtDirection = m_playerTransform.position - transform.position;
 		Quaternion rotation = Quaternion.LookRotation(lookAtDirection, Vector3.back);
-		transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 15 * Time.deltaTime);
+		transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 2 * Time.deltaTime);
 	}
 
 	private void OnTriggerEnter(Collider other)

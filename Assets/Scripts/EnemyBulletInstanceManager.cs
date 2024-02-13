@@ -9,10 +9,63 @@ BulletInstanceManager Class
 
 using UnityEngine;
 
-public class BulletInstanceManager : MonoBehaviour
+public class EnemyBulletInstanceManager : MonoBehaviour
 {
+	private GameObject m_player;
+	private PlayerCombatManager m_playerCombatManager;
+	private Collider m_playerShipCollider;
+	private float m_speed = 10f;
 
-	// Private property to reference the player space ship game object
+	private AudioSource m_audioSource;
+
+	private void Awake()
+	{
+		m_player = GameObject.FindGameObjectWithTag("Player");
+		m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
+		m_playerShipCollider = m_player.GetComponent<CapsuleCollider>();
+		m_audioSource = this.gameObject.GetComponent<AudioSource>();
+	}
+
+	private void Start()
+	{
+		m_audioSource.Play();
+	}
+
+	public void Update()
+	{
+		Debug.Log("Enemy Move Calling");
+		MoveBullets();
+	}
+
+	private void MoveBullets()
+	{
+		this.gameObject.transform.Translate(Vector3.forward * m_speed * Time.deltaTime);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other == m_playerShipCollider)
+		{
+			if (m_player == null) { return; }
+			m_playerCombatManager.TakeDamage(m_playerCombatManager.CurrentHealth, 5);
+			DestroyBulletInstance();
+		}
+	}
+
+	private void DestroyBulletInstance()
+	{
+		// Method to destroy bullet instance
+		// Set bullet instance game object to false
+		this.gameObject.SetActive(false);
+		// Destroy the bullet instance
+		Destroy(this.gameObject);
+	}
+}
+
+
+
+/*
+// Private property to reference the player space ship game object
 	private GameObject m_player;
 	// Private property to reference the player combat script on the player game object
 	private PlayerCombatManager m_playerCombatManager;
@@ -34,9 +87,9 @@ public class BulletInstanceManager : MonoBehaviour
 		m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
 		// Set reference the audio source component on the bullet instance
 		m_audioSource = this.gameObject.GetComponent<AudioSource>();
-		Enemy = GameObject.FindGameObjectWithTag("Enemy");
-		if (Enemy == null) { return; }
-		m_enemyComabatManager = Enemy.GetComponent<EnemySpaceshipInstanceCombatManager>();
+		m_enemy = GameObject.FindGameObjectWithTag("Enemy");
+		if (m_enemy == null) { return; }
+		m_enemyComabatManager = m_enemy.GetComponent<EnemySpaceshipInstanceCombatManager>();
 	}
 
 	// Start method
@@ -81,14 +134,13 @@ public class BulletInstanceManager : MonoBehaviour
 			// Call destroy bullet instance method
 			DestroyBulletInstance();
 		}
-		if (other.gameObject.tag == "Enemy")
+		if (other.gameObject.tag == "Player")
 		{
-			if (Enemy == null) { return; }
+			if (m_player == null) { return; }
 			//if (m_enemyComabatManager == null) { return; }
 			//if (!m_playerCombatManager) { Debug.Log("ERR: BulletInstanceManager ====== OnTriggerEnter() ====== Player Combat Script Not Found"); return; }
 			//m_playerCombatManager.UpdateScore(m_playerCombatManager.Score, 100);
-			m_enemyComabatManager.TakeDamage(m_enemyComabatManager.CurrentHealth, 40);
-			DestroyBulletInstance();
+			m_playerCombatManager.TakeDamage(m_enemyComabatManager.CurrentHealth, 5);
 		}
 	}
 
@@ -116,4 +168,4 @@ public class BulletInstanceManager : MonoBehaviour
 		// Destroy the bullet instance
 		Destroy(this.gameObject);
 	}
-}
+	*/

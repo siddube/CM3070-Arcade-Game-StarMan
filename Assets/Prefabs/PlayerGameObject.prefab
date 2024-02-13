@@ -38,7 +38,7 @@ Transform:
   - {fileID: 2265469575829442749}
   - {fileID: 6174783201852683741}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &177736102175652465
 AudioSource:
@@ -270,7 +270,7 @@ MonoBehaviour:
   OnShootBullets:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6156387546975025940}
+      - m_Target: {fileID: 944939144314571848}
         m_TargetAssemblyTypeName: BulletSpawnManager, Assembly-CSharp
         m_MethodName: SpawnBullet
         m_Mode: 1
@@ -533,38 +533,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1949307542997803110, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
-    - {fileID: 2750107447456729532, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 117980669477839599, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6156387546975025940}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
---- !u!4 &6174783201852683741 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2622549826415946907, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
-  m_PrefabInstance: {fileID: 8202206897541126470}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8104000464743594921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 117980669477839599, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
-  m_PrefabInstance: {fileID: 8202206897541126470}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6156387546975025940
+--- !u!114 &944939144314571848 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8991734153280607502, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
+  m_PrefabInstance: {fileID: 8202206897541126470}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8104000464743594921}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 341892b86435f604ea99753ad96c7c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 7753689560090496743, guid: 01829c2765bf916428b1e8b7ce5d1685, type: 3}
-  BulletParentObject: {fileID: 8104000464743594921}
-  BulletSpawnTransform: {fileID: 6174783201852683741}
+--- !u!4 &6174783201852683741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2622549826415946907, guid: 1496b1df35a07914e88c2ec4c1fe3d0a, type: 3}
+  m_PrefabInstance: {fileID: 8202206897541126470}
+  m_PrefabAsset: {fileID: 0}
