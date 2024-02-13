@@ -8,17 +8,18 @@ public class EnemySpaceshipSpawner : MonoBehaviour
 	[SerializeField] private Vector2 m_forceRange;
 	private GameObject m_enemySpaceShipInstance;
 	private Rigidbody m_rb;
+
 	public bool IsEnemyChildAlive = false;
-	private float spawnAseroidDelay = 3f;
+	public float SpawnEnemyDelay = 3f;
 
 	// Start is called before the first frame update
 	private void Update()
 	{
-		spawnAseroidDelay -= Time.deltaTime;
-		if (spawnAseroidDelay <= 0f && !IsEnemyChildAlive)
+		SpawnEnemyDelay -= Time.deltaTime;
+		if (SpawnEnemyDelay <= 0f && !IsEnemyChildAlive)
 		{
 			SpwanEnemyShip();
-			spawnAseroidDelay = 3f;
+			SpawnEnemyDelay = 3f;
 		}
 	}
 
@@ -70,9 +71,5 @@ public class EnemySpaceshipSpawner : MonoBehaviour
 		IsEnemyChildAlive = true;
 
 		m_enemySpaceShipInstance.transform.parent = this.transform;
-
-		// m_rb = m_enemySpaceShipInstance.GetComponent<Rigidbody>();
-
-		// m_rb.velocity = direction.normalized * Random.Range(m_forceRange.x, m_forceRange.y);
 	}
 }

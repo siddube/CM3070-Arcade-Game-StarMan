@@ -11,14 +11,19 @@ using UnityEngine;
 
 public class BulletInstanceManager : MonoBehaviour
 {
+
 	// Private property to reference the player space ship game object
 	private GameObject m_player;
 	// Private property to reference the player combat script on the player game object
 	private PlayerCombatManager m_playerCombatManager;
+	private EnemySpaceshipInstanceCombatManager m_enemyComabatManager;
 	// private property to set speed of bullets
 	private float m_speed = 10f;
 	// Reference to audio source with bullet shot sound fx
 	private AudioSource m_audioSource;
+
+	private GameObject m_enemy;
+	public GameObject Enemy { get => m_enemy; set => m_enemy = value; }
 
 	// Awake method
 	private void Awake()
@@ -29,6 +34,9 @@ public class BulletInstanceManager : MonoBehaviour
 		m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
 		// Set reference the audio source component on the bullet instance
 		m_audioSource = this.gameObject.GetComponent<AudioSource>();
+		Enemy = GameObject.FindGameObjectWithTag("Enemy");
+		if (Enemy == null) { return; }
+		m_enemyComabatManager = Enemy.GetComponent<EnemySpaceshipInstanceCombatManager>();
 	}
 
 	// Start method
@@ -72,6 +80,14 @@ public class BulletInstanceManager : MonoBehaviour
 			other.GetComponent<AsteroidInstaceManager>().DestroyAsteroid();
 			// Call destroy bullet instance method
 			DestroyBulletInstance();
+		}
+		if (other.gameObject.tag == "Enemy")
+		{
+			if (Enemy == null) { return; }
+			//if (m_enemyComabatManager == null) { return; }
+			//if (!m_playerCombatManager) { Debug.Log("ERR: BulletInstanceManager ====== OnTriggerEnter() ====== Player Combat Script Not Found"); return; }
+			//m_playerCombatManager.UpdateScore(m_playerCombatManager.Score, 100);
+			m_enemyComabatManager.TakeDamage(m_enemyComabatManager.CurrentHealth, 40);
 		}
 	}
 
