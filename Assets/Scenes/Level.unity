@@ -2504,6 +2504,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1861586985}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: set_IsGameOver
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1927905920}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1873865529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,24 +3272,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1561261434399475644, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1561261434399475644, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2454671532118373614, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
       propertyPath: m_Name
       value: PlayerGameObject
       objectReference: {fileID: 0}
-    - target: {fileID: 2454671532118373614, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: lengthInSec
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5088042816568297103, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342306031847542808, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
@@ -3277,11 +3317,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4105356190572227781}
     - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: OnEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1861586985}
     - target: {fileID: 8116375611338785650, guid: 7ca5ebda828b0f044a8d170e5352d9fb, type: 3}
-      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnPlayerShipDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4105356190572227781}
     m_RemovedComponents: []

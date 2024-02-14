@@ -29,11 +29,13 @@ public class EnemySpaceshipMovement : MonoBehaviour
 
 	private void MoveTowardsPlayer()
 	{
+		if (m_playerTransform == null) { Debug.Log("ERR: EnemySpaceshipMovement ====== LookAtPlayer() ====== Transform destoryed"); return; }
 		transform.position = Vector3.MoveTowards(transform.position, m_playerTransform.position, 1f * Time.deltaTime);
 	}
 
 	private void LookAtPlayer()
 	{
+		if (m_playerTransform == null) { Debug.Log("ERR: EnemySpaceshipMovement ====== LookAtPlayer() ====== Transform destoryed"); return; }
 		Vector3 lookAtDirection = m_playerTransform.position - transform.position;
 		Quaternion rotation = Quaternion.LookRotation(lookAtDirection, Vector3.back);
 		transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 2 * Time.deltaTime);

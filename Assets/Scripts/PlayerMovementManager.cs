@@ -13,7 +13,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovementManager : MonoBehaviour
 {
 	// Property set from editor, to reference thrust particle system 
-	[SerializeField] ParticleSystem ThrustParticleSystem;
+	[SerializeField] public ParticleSystem ThrustParticleSystem;
 	// Private property, yet set from editor, to control +ve and -ve thrust on player space ship
 	[SerializeField] private float m_thrust = 10f;
 	// Private property, yet set from editor, to set backward thrust threshold

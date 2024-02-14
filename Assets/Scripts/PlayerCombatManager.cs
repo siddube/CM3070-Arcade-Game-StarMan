@@ -6,6 +6,9 @@
 <PlayerMovementManager Class>
 --------------------------------------------------------------------------------*/
 
+using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -15,13 +18,26 @@ public class PlayerCombatManager : MonoBehaviour
   // Property set from editor, to reference health bar
   [SerializeField] public HealthBar HealthBar;
   // Property set from editor, to reference health bar
-  [SerializeField] GameScoreManager ScoreManager;
+  [SerializeField] private GameScoreManager ScoreManager;
+  //
+  [SerializeField] private ParticleSystem m_destroyParticleSystemFx;
+  //
+  [SerializeField] private AudioSource m_destroyAudioFx;
+  //
+  private PlayerMovementManager m_playerMovementManager;
+  // Private property that references collider on the asteroid instance
+  private Collider[] m_colliders;
+  // Private property that references mesh renderer on the asteroid instance
+  private MeshRenderer m_meshRenderer;
 
   // Event emitted when player presses spacebar to shoot
   // Event emmitted on shooting bullets with spacebar
   public UnityEvent OnShootBullets;
   // Event emmitted on player space ship getting destroyed
   public UnityEvent OnPlayerShipDestroyed;
+
+  //
+  public UnityEvent OnEndGame;
 
   // Private property to set current health
   // Initially set to full 100 points
@@ -33,6 +49,10 @@ public class PlayerCombatManager : MonoBehaviour
   private int m_score = 0;
   // Public score property other classes can get and set
   public int Score { get => m_score; set => m_score = value; }
+  // 
+  private string DelayDestroyEnemyString = "DelayDestroyEnemyRoutine";
+  //
+  private float m_destroyDelay = 3f;
 
   // Start method
   private void Start()
@@ -41,9 +61,14 @@ public class PlayerCombatManager : MonoBehaviour
     m_currentHealth = 100;
     // Set score to 0
     m_score = 0;
+    //
+    m_colliders = this.gameObject.GetComponents<Collider>();
+    m_meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+    m_playerMovementManager = this.gameObject.GetComponent<PlayerMovementManager>();
     // Set health to maximum health on health bar
     if (!HealthBar) { Debug.Log("ERR: PlayerCombatManager ====== UpdateScore() ====== HealthBar not setup"); return; }
     HealthBar.SetMaxHealth(m_currentHealth);
+    m_destroyParticleSystemFx.Stop();
   }
 
   // OnShoot method is called by player input
@@ -86,8 +111,30 @@ public class PlayerCombatManager : MonoBehaviour
     {
       // If yes then invoke on player ship destoryed event
       OnPlayerShipDestroyed.Invoke();
+      StartCoroutine(DelayDestroyEnemyString);
+      //
       // Destroy the game object
-      Destroy(this.gameObject);
+
     }
+  }
+
+  IEnumerator DelayDestroyEnemyRoutine()
+  {
+    foreach (Collider c in m_colliders)
+    {
+      c.enabled = false;
+    }
+    // Make asteroid invisible
+    m_meshRenderer.enabled = false;
+    m_destroyAudioFx.Play();
+    m_destroyParticleSystemFx.Play();
+    m_playerMovementManager.ThrustParticleSystem.Stop();
+    yield return new WaitForSeconds(m_destroyDelay);
+    OnEndGame.Invoke();
+
+  }
+  public void DestroyPlayerPrefab()
+  {
+    Destroy(this.gameObject);
   }
 }
