@@ -17,6 +17,8 @@ public class AsteroidInstaceManager : MonoBehaviour
 	// Private property that references player combat manager
 	private PlayerCombatManager m_playerCombatManager;
 	// Private property that references player spaceship body collider
+	//
+	private EnemySpaceshipInstanceCombatManager m_enemySpaceshipInstanceCombatManager;
 	private Collider m_playerShipCollider;
 	// Private property that references asteroid particle system fx
 	private ParticleSystem m_particleSystemInstance;
@@ -39,6 +41,8 @@ public class AsteroidInstaceManager : MonoBehaviour
 		// Set reference to player combat script on the player game object 
 		m_playerCombatManager = m_player.GetComponent<PlayerCombatManager>();
 		m_playerShipCollider = m_player.GetComponent<CapsuleCollider>();
+		//
+		m_enemySpaceshipInstanceCombatManager = GameObject.FindAnyObjectByType<EnemySpaceshipInstanceCombatManager>();
 		// Set reference to audio source on the asteroid instace 
 		m_audioSource = this.gameObject.GetComponent<AudioSource>();
 		// Set reference to collider on the asteroid instace 
@@ -64,6 +68,12 @@ public class AsteroidInstaceManager : MonoBehaviour
 			// Call destory to play asteroid collision particle fx and sound fx
 			DestroyAsteroidFx();
 			// Call Destroy asteroid method 
+			DestroyAsteroid();
+		}
+		if (other.gameObject.tag == "Enemy")
+		{
+			m_enemySpaceshipInstanceCombatManager.TakeDamage(m_enemySpaceshipInstanceCombatManager.CurrentHealth, 10);
+			DestroyAsteroidFx();
 			DestroyAsteroid();
 		}
 	}
