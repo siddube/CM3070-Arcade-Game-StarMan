@@ -11,7 +11,10 @@ public class EnemySpaceshipInstanceCombatManager : MonoBehaviour
     private string DelayDestroyEnemyString = "DelayDestroyEnemyRoutine";
 
     private float m_destroyDelay = 2.5f;
-
+    // Private property that references asteroid particle system fx
+    private ParticleSystem m_particleSystemInstance;
+    // Private property that references asteroid audio fx
+    private AudioSource m_audioSource;
     // Private property that references collider on the asteroid instance
     private Collider m_collider;
     // Private property that references mesh renderer on the asteroid instance
@@ -28,6 +31,10 @@ public class EnemySpaceshipInstanceCombatManager : MonoBehaviour
         m_meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
         m_playerCombatManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombatManager>();
         m_enemyBulletSpawnManager = this.gameObject.GetComponentInChildren<BulletSpawnManager>();
+        m_audioSource = this.gameObject.GetComponent<AudioSource>();
+        // Set reference to particle system on the asteroid instace
+        m_particleSystemInstance = this.gameObject.GetComponent<ParticleSystem>();
+        m_particleSystemInstance.Stop();
         m_isShipAlive = true;
         this.gameObject.GetComponentInParent<EnemySpaceshipSpawner>().SpawnEnemyDelay = 3f;
 
@@ -61,8 +68,15 @@ public class EnemySpaceshipInstanceCombatManager : MonoBehaviour
     {
         if (m_currentHealth <= 0)
         {
+            DestroyEnemyFx();
             StartCoroutine(DelayDestroyEnemyString);
         }
+    }
+
+    private void DestroyEnemyFx()
+    {
+        m_particleSystemInstance.Play();
+        m_audioSource.Play();
     }
 
     IEnumerator DelayDestroyEnemyRoutine()
