@@ -10,7 +10,7 @@ public class EnemySpaceshipInstanceCombatManager : MonoBehaviour
     public int CurrentHealth { get => m_currentHealth; set => m_currentHealth = value; }
     private string DelayDestroyEnemyString = "DelayDestroyEnemyRoutine";
 
-    private float m_destroyDelay = 2.5f;
+    private float m_destroyDelay = 2f;
     // Private property that references asteroid particle system fx
     private ParticleSystem m_particleSystemInstance;
     // Private property that references asteroid audio fx

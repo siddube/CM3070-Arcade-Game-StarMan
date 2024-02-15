@@ -8,6 +8,8 @@ TagManager:
   - Asteroids
   - HealthBar
   - Enemy
+  - EnemyBulletSpawn
+  - SoundFx
   layers:
   - Default
   - TransparentFX
