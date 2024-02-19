@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
   // Public property other classes can get and set
   public bool IsTimeOver { get => m_isTimeOver; set => m_isTimeOver = value; }
 
+  private GameScoreManager m_gameScoreManager;
+
   // References to other game objects used in the script
   // Reference to the player space ship game object
   private GameObject m_player;
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
   {
     // Get player reference
     m_player = GameObject.FindGameObjectWithTag("Player");
+    m_gameScoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<GameScoreManager>();
   }
 
   // Start method
@@ -129,6 +132,11 @@ public class GameManager : MonoBehaviour
     // Check if end game event property is not null
     if (EndGameEvent != null)
     {
+      int gameScore = m_gameScoreManager.Score;
+      if (gameScore >= m_gameScoreManager.HighScore)
+      {
+        m_gameScoreManager.NewHighScore();
+      }
       // Then invoke end game event for other game objects to follow 
       EndGameEvent.Invoke();
     }

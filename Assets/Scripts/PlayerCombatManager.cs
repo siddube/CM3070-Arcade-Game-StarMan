@@ -50,7 +50,7 @@ public class PlayerCombatManager : MonoBehaviour
   // Public score property other classes can get and set
   public int Score { get => m_score; set => m_score = value; }
   // 
-  private string DelayDestroyEnemyString = "DelayDestroyEnemyRoutine";
+  private string DelayDestroyShipString = "DelayDestroyShipRoutine";
   //
   private float m_destroyDelay = 3f;
 
@@ -111,14 +111,14 @@ public class PlayerCombatManager : MonoBehaviour
     {
       // If yes then invoke on player ship destoryed event
       OnPlayerShipDestroyed.Invoke();
-      StartCoroutine(DelayDestroyEnemyString);
+      StartCoroutine(DelayDestroyShipString);
       //
       // Destroy the game object
 
     }
   }
 
-  IEnumerator DelayDestroyEnemyRoutine()
+  IEnumerator DelayDestroyShipRoutine()
   {
     foreach (Collider c in m_colliders)
     {
