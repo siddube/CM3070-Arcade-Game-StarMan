@@ -12,6 +12,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerCombatManager : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class PlayerCombatManager : MonoBehaviour
   [SerializeField] private ParticleSystem m_destroyParticleSystemFx;
   //
   [SerializeField] private AudioSource m_destroyAudioFx;
+  [SerializeField] private GameObject[] m_livesLeftSprites;
   //
+  private GameObject m_player;
   private PlayerMovementManager m_playerMovementManager;
   // Private property that references collider on the asteroid instance
   private Collider[] m_colliders;
@@ -49,6 +52,8 @@ public class PlayerCombatManager : MonoBehaviour
   private int m_score = 0;
   // Public score property other classes can get and set
   public int Score { get => m_score; set => m_score = value; }
+
+  private int m_livesLeft = 3;
   // 
   private string DelayDestroyShipString = "DelayDestroyShipRoutine";
   //
@@ -57,6 +62,7 @@ public class PlayerCombatManager : MonoBehaviour
   // Start method
   private void Start()
   {
+    m_player = GameObject.FindGameObjectWithTag("Player");
     // Set health to 100
     m_currentHealth = 100;
     // Set score to 0
@@ -109,13 +115,43 @@ public class PlayerCombatManager : MonoBehaviour
     // Check if current health is lesser than 0 or negative
     if (m_currentHealth <= 0)
     {
+      m_livesLeft -= 1;
+
+      if (m_livesLeft > 0)
+      {
+        StartCoroutine("RespawnPlayer");
+        m_livesLeftSprites[m_livesLeft - 1].SetActive(false);
+      }
+      else
+      {
+        OnPlayerShipDestroyed.Invoke();
+        StartCoroutine(DelayDestroyShipString);
+      }
       // If yes then invoke on player ship destoryed event
-      OnPlayerShipDestroyed.Invoke();
-      StartCoroutine(DelayDestroyShipString);
-      //
-      // Destroy the game object
 
     }
+  }
+
+  IEnumerator RespawnPlayer()
+  {
+    foreach (Collider c in m_colliders)
+    {
+      c.enabled = false;
+    }
+    m_meshRenderer.enabled = false;
+    m_destroyAudioFx.Play();
+    m_destroyParticleSystemFx.Play();
+    m_playerMovementManager.ThrustParticleSystem.Stop();
+    m_player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    yield return new WaitForSeconds(m_destroyDelay);
+    m_meshRenderer.enabled = true;
+    foreach (Collider c in m_colliders)
+    {
+      c.enabled = true;
+    }
+    m_playerMovementManager.transform.position = new Vector3(0f, 0f, 0f);
+    m_currentHealth = 100;
+    HealthBar.SetHealth(m_currentHealth);
   }
 
   IEnumerator DelayDestroyShipRoutine()
