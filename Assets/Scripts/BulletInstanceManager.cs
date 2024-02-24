@@ -89,7 +89,7 @@ public class BulletInstanceManager : MonoBehaviour
 		// Check if can move bullets property is true
 		if (m_canMove)
 		{
-			// Call move bullets method
+			// If true  then Call move bullets method
 			MoveBullets();
 		}
 		// Destory bullets if out of screen bounds
@@ -169,6 +169,7 @@ public class BulletInstanceManager : MonoBehaviour
 		// Call destroy bullet method
 		DestroyBulletInstance();
 	}
+
 	// DestroyBulletInstance method
 	private void DestroyBulletInstance()
 	{

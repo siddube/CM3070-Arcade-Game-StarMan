@@ -9,8 +9,6 @@ using UnityEngine.Events;
 
 public class GameTimerManager : MonoBehaviour
 {
-    // Public Property set from editor, to reference player combat script
-    [SerializeField] public PlayerCombatManager playerCombatManager;
     // Public Property set from editor, to reference score text
     [SerializeField] public TMP_Text ScoreText;
     // Public Property set from editor, to reference time text

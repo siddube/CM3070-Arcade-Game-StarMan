@@ -111,6 +111,7 @@ public class AsteroidInstaceManager : MonoBehaviour
 	// DestroyAsteroidFx
 	public void DestroyAsteroidFx()
 	{
+		// Check if particle system or audio souce is null
 		if (m_particleSystemInstance == null) { Debug.Log("ERR: AsteroidInstaceManager ====== DestroyAsteroidFx() ====== Particle System Not Found"); }
 		if (m_audioSource == null) { Debug.Log("ERR: AsteroidInstaceManager ====== DestroyAsteroidFx() ====== Audio Source Not Found"); }
 		// Play asteroid collision particle system fx
