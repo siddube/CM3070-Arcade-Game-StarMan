@@ -3733,14 +3733,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpaceShips
       objectReference: {fileID: 0}
-    - target: {fileID: 7364352572091598769, guid: f332fb970837d634cb2bbd764d90c3bb, type: 3}
-      propertyPath: enemyShipPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364352572091598769, guid: f332fb970837d634cb2bbd764d90c3bb, type: 3}
-      propertyPath: enemyShipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 9116030087472781677, guid: 951c81cd67c4d914abf2cb48f85ac47f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
