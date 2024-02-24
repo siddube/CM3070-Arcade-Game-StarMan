@@ -68,9 +68,10 @@ public class EnemyBulletInstanceManager : MonoBehaviour
 	private void Start()
 	{
 		// Check if audio source property is null and log warning
-		if (!m_audioSource) { Debug.Log("ERR: BulletInstanceManager ====== Start() ====== Audio Source Not Found"); return; }
-		if (!m_blastParticleSystem) { Debug.Log("ERR: BulletInstanceManager ====== Start() ====== Particle System Not Found"); return; }
-		// Play audio bullet fired audio fx
+		if (!m_audioSource) { Debug.Log("ERR: EnemyBulletInstanceManager ====== Start() ====== Audio Source Not Found"); return; }
+		// Check if blast particle is null
+		if (!m_blastParticleSystem) { Debug.Log("ERR: EnemyBulletInstanceManager ====== Start() ====== Particle System Not Found"); return; }
+		// Play bullet fired audio fx
 		m_audioSource.Play();
 		// Set particle effects to stop by default
 		m_blastParticleSystem.Stop();
@@ -152,7 +153,6 @@ public class EnemyBulletInstanceManager : MonoBehaviour
 	private void DestroyBulletInstance()
 	{
 		// Method to destroy bullet instance
-		// Set bullet instance game object to false
 		// Destroy the bullet instance
 		Destroy(this.gameObject);
 	}

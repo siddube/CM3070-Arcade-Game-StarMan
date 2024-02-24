@@ -127,8 +127,6 @@ public class PlayerCombatManager : MonoBehaviour
         OnPlayerShipDestroyed.Invoke();
         StartCoroutine(DelayDestroyShipString);
       }
-      // If yes then invoke on player ship destoryed event
-
     }
   }
 
