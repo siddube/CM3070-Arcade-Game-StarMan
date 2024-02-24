@@ -18,9 +18,12 @@ public class PlayerMovementManager : MonoBehaviour
 	[SerializeField] private float m_thrust = 10f;
 	// Private property, yet set from editor, to set backward thrust threshold
 	[SerializeField] private float m_backwardThrustThreshold = 0.2f;
-
 	// Private property, yet set from editor, to set rotationSteer speed of player space ship
 	[SerializeField] private float m_rotateSteerSpeed = 75f;
+
+	// Private property to reference combat script
+	private PlayerCombatManager m_playerCombatManager;
+
 	// Private vector to store the composite vector from player controls
 	private Vector2 m_moveInupt;
 	// Private reference to the rigid body component on the player space ship
@@ -33,6 +36,8 @@ public class PlayerMovementManager : MonoBehaviour
 	// Awake method
 	private void Awake()
 	{
+		// Set player combat reference script
+		m_playerCombatManager = this.gameObject.GetComponent<PlayerCombatManager>();
 		// Assign reference of the rigid body
 		m_rb = this.gameObject.GetComponent<Rigidbody>();
 		// Assign reference of the audio source
@@ -158,7 +163,7 @@ public class PlayerMovementManager : MonoBehaviour
 		}
 		// Else if thrusting is true
 		// Start thrust sound and particle fx
-		else
+		else if (playThrust && m_playerCombatManager.IsShipAlive())
 		{
 			ThrustParticleSystem.Play();
 			m_audioSource.Play();

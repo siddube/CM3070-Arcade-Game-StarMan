@@ -222,6 +222,12 @@ public class PlayerCombatManager : MonoBehaviour
     OnEndGame.Invoke();
   }
 
+  // IsShipAlive method
+  public bool IsShipAlive()
+  {
+    return (m_currentHealth > 0) ? true : false;
+  }
+
   // DestroyPlayerPrefab method
   public void DestroyPlayerPrefab()
   {

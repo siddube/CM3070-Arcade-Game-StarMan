@@ -73,7 +73,7 @@ public class EnemySpaceshipInstanceCombatManager : MonoBehaviour
             // Check if player combat manager script is attached
             if (m_playerCombatManager == null) { Debug.Log("ERR: EnemySpaceshipInstanceCombatManager ====== Update() ====== Player Combat Script Not Found"); return; }
             // Check if player is alive by accessing current health
-            if (m_playerCombatManager.CurrentHealth > 0)
+            if (m_playerCombatManager.IsShipAlive())
             {
                 // If yes, then Shoot bullet
                 OnShoot();
