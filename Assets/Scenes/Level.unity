@@ -1857,10 +1857,6 @@ PrefabInstance:
       value: Timer Text
       objectReference: {fileID: 0}
     - target: {fileID: 7818678792903103991, guid: f4a5c3ee0bc2b1d458fb275c764c5e31, type: 3}
-      propertyPath: LevelTime
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818678792903103991, guid: f4a5c3ee0bc2b1d458fb275c764c5e31, type: 3}
       propertyPath: OnTimeUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1861586985}
@@ -1868,14 +1864,6 @@ PrefabInstance:
       propertyPath: OnTimeUp.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1927905920}
-    - target: {fileID: 7818678792903103991, guid: f4a5c3ee0bc2b1d458fb275c764c5e31, type: 3}
-      propertyPath: OnTimeUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_IsTimeOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818678792903103991, guid: f4a5c3ee0bc2b1d458fb275c764c5e31, type: 3}
-      propertyPath: OnTimeUp.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -73,7 +73,7 @@ public class AsteroidInstaceManager : MonoBehaviour
 		if (other.gameObject.tag == "Enemy")
 		{
 			// Check if enemy still has combat script attached and not destoryed
-			if (m_enemySpaceshipInstanceCombatManager == null) { Debug.Log("ERR: AsteroidInstaceManager ====== OnTriggerEnter() ====== Enemy Combat Script Not Found"); return; }
+			if (!m_enemySpaceshipInstanceCombatManager) { Debug.Log("ERR: AsteroidInstaceManager ====== OnTriggerEnter() ====== Enemy Combat Script Not Found"); return; }
 			// Yes, then set damage to player
 			m_enemySpaceshipInstanceCombatManager.TakeDamage(m_enemySpaceshipInstanceCombatManager.CurrentHealth, 10);
 			// Call destory to play asteroid collision particle fx and sound fx
