@@ -161,4 +161,12 @@ public class GameManager : MonoBehaviour
     // Load scene again to reboot game
     SceneManager.LoadScene(scene.name);
   }
+
+  // QuitGame method
+  public void QuitGame()
+  {
+    Debug.Log("GameManager info: Quitting Game");
+    // Quit application
+    Application.Quit();
+  }
 }
