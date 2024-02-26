@@ -132,10 +132,17 @@ public class GameManager : MonoBehaviour
     // Check if end game event property is not null
     if (EndGameEvent != null)
     {
+      // Check if score is greater than highscore
       int gameScore = m_gameScoreManager.Score;
       if (gameScore >= m_gameScoreManager.HighScore)
       {
+        // If yes, then call new high scoreMethod on score manager
         m_gameScoreManager.NewHighScore();
+      }
+      else
+      {
+        // Else call Set final Score method on ScoreManager
+        m_gameScoreManager.SetFinalScore();
       }
       // Then invoke end game event for other game objects to follow 
       EndGameEvent.Invoke();

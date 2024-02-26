@@ -47,10 +47,12 @@ public class GameScoreManager : MonoBehaviour
     // SetFinalScore method
     public void SetFinalScore()
     {
+        // Disable game over high score text
+        EndMenuHighScoreText.enabled = false;
+        // Set the end menu to include final score and not final score text display
+        FinalScoreText.enabled = true;
         // Set final score text value with final score
         FinalScoreText.GetComponent<TextMeshProUGUI>().text = "Score: " + Score.ToString();
-        // Disable game over high score text to false
-        EndMenuHighScoreText.enabled = false;
     }
 
     // SetHighScore method
@@ -58,6 +60,12 @@ public class GameScoreManager : MonoBehaviour
     {
         // Set highscore to player prefs high score key
         PlayerPrefs.SetInt(HighScoreKey, value);
+        // Set the end menu to include highscore and not final score text display
+        FinalScoreText.enabled = false;
+        // Set end menu highscore text reference to true
+        EndMenuHighScoreText.enabled = true;
+        // Set highscore and display it in the end menu
+        EndMenuHighScoreText.GetComponent<TextMeshProUGUI>().text = "New HighScore: " + Score.ToString();
     }
 
     // GetHighScore method
@@ -75,24 +83,10 @@ public class GameScoreManager : MonoBehaviour
         StartMenuHighScoreText.GetComponent<TextMeshProUGUI>().text = "HighScore: " + HighScore.ToString();
     }
 
-    // SetEndMenuHighScoreText method
-    public void SetEndMenuHighScoreText()
-    {
-        // If high score attained
-        // Set final score text reference to false
-        FinalScoreText.enabled = false;
-        // Set end menu highscore text reference to true
-        EndMenuHighScoreText.enabled = true;
-        // Set highscore and display it in the end menu
-        EndMenuHighScoreText.GetComponent<TextMeshProUGUI>().text = "New HighScore: " + Score.ToString();
-    }
-
     // NewHighScore method
-    internal void NewHighScore()
+    public void NewHighScore()
     {
         // Set highscore value saved in player prefs to new highscore value 
         SetHighScore(Score);
-        // Set the end menu to include highscore and not final score text display
-        SetEndMenuHighScoreText();
     }
 }
